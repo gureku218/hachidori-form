@@ -3,43 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ハチドリ ドローンサービス</title>
+  <title>ハチドリドローンサービス 受付フォーム</title>
   <style>
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background-color: #f4efe7;
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background-color: #f3e8dc;
       color: #333;
+    }
+    header {
+      background-color: #d9c7b1;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    h1 { color: #5b4636; }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin: 30px auto;
-      max-width: 600px;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4b3f33;
     }
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #d7c3a3;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+    .form-container {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
     }
-    a.button:hover { background-color: #bca784; }
+    iframe {
+      width: 90%;
+      max-width: 700px;
+      height: 1500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin: 2rem 0;
+    }
+    .hummingbird {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
-  <h1>ハチドリ ドローンサービス</h1>
-  <div class="card">
-    <p>最新ドローンで、安心・正確に農薬・肥料を散布します。</p>
-    <p>料金：10aあたり 2,000円</p>
-    <a href="https://docs.google.com/forms/d/1ACozj1U9P_B-HzvG07pqb2pUCUCAz4ZaZe91Yu0LIhw/viewform" class="button">お申し込みフォームへ</a>
-  </div>
+  <header>
+    <div class="hummingbird">🕊️</div>
+    <h1>ハチドリドローンサービス 受付フォーム</h1>
+  </header>
+
+  <main class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfMlgt4zgvWjuLARksPou3A4zV9YH0jOeZ9KjANd5vbkDyVrQ/viewform?embedded=true" 
+            width="640" height="1445" 
+            frameborder="0" marginheight="0" marginwidth="0">
+      読み込んでいます…
+    </iframe>
+  </main>
+
+  <footer>
+    &copy; 2025 ハチドリドローンサービス
+  </footer>
 </body>
 </html>
