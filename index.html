@@ -3,31 +3,233 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ハチドリドローンサービス</title>
+  <title>Hachidori Farm | 自然とテクノロジーが調和する農園</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { margin:0; padding:0; font-family:"Noto Sans JP", sans-serif; background-color:#f3e8dc; color:#333; }
-    header { background-color:#d9c7b1; padding:2rem 1rem; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-    header h1 { margin:0; font-size:2rem; color:#4b3f33; }
-    .content { padding:2rem 1rem; max-width:800px; margin:auto; text-align:center; }
-    .btn { display:inline-block; margin-top:2rem; padding:1rem 2rem; background-color:#4b3f33; color:#fff; text-decoration:none; border-radius:8px; font-size:1.2rem; }
-    footer { text-align:center; font-size:0.9rem; color:#666; margin:2rem 0; }
-    .hummingbird { font-size:3rem; margin-bottom:1rem; }
+    :root {
+      --bg: #f7f3ee;          /* サンドベージュ背景 */
+      --accent: #d3bfa3;       /* 柔らかいベージュ */
+      --text: #3c2f27;         /* 濃い茶系文字色 */
+      --highlight: #7a6248;    /* アクセント濃色 */
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    header {
+      background-color: var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--highlight);
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .hero .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.6rem;
+      font-weight: 700;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: var(--highlight);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .section p {
+      font-size: 1rem;
+    }
+
+    .farm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--highlight);
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: var(--highlight);
+      color: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #5a4535;
+    }
+
+    footer {
+      background-color: var(--accent);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.5rem;
+      }
+      .hero .text {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="hummingbird">🕊️</div>
-    <h1>ハチドリドローンサービス</h1>
+    <div style="display:flex; align-items:center;">
+      <img src="images/logo.png" alt="Hachidori Farm ロゴ">
+      <h1>Hachidori Farm</h1>
+    </div>
+    <nav>
+      <a href="#about">私たちについて</a>
+      <a href="#business">事業紹介</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
   </header>
 
-  <main class="content">
-    <p>ハチドリドローンサービスでは、ドローンを使った農薬・肥料の散布を行っています。</p>
-    <p>ご依頼やお問い合わせは、下のボタンからフォームにアクセスしてください。</p>
-    <a class="btn" href="form.html" target="_blank">受付フォームへ</a>
-  </main>
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1595433562696-19a6ebf19a5b?auto=format&fit=crop&w=1200&q=80" alt="農場の風景">
+    <div class="text">自然とテクノロジーの調和を。</div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>ハチドリファームとは</h2>
+    <p>
+      Hachidori Farm（ハチドリファーム）は、オリーブ・稲作・ブルーベリー・いちじくの栽培を中心に、<br>
+      農業にテクノロジーを融合させた新しい形の農園です。<br>
+      ドローンやデータ解析を活用し、環境にやさしく持続可能な農業を目指しています。
+    </p>
+  </section>
+
+  <section id="business" class="section">
+    <h2>事業紹介</h2>
+    <div class="farm-grid">
+      <div class="card">
+        <h3>オリーブ栽培</h3>
+        <p>風土に合った品種を選定し、農薬を極力抑えた安心・安全なオリーブを育てています。<br>
+        葉を使った「オリーブ茶」も好評です。</p>
+      </div>
+      <div class="card">
+        <h3>水稲栽培</h3>
+        <p>地域の農業公社と連携し、良質な米づくりを行っています。<br>
+        省力化と品質の両立を追求しています。</p>
+      </div>
+      <div class="card">
+        <h3>ブルーベリー・いちじく</h3>
+        <p>食味・香りを重視した少量高品質生産。<br>
+        来園型収穫体験の導入も進めています。</p>
+      </div>
+      <div class="card">
+        <h3>ドローンサービス</h3>
+        <p>「ハチドリドローンサービス」として、農薬・肥料の散布、圃場モニタリングを提供しています。<br>
+        最新ドローンを活用し、効率的でムラのない作業を実現。</p>
+        <a class="btn" href="drone.html">詳しく見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>お問い合わせ</h2>
+    <p>ご相談・ご質問は以下のメールまたはフォームからお気軽にお寄せください。</p>
+    <p>📧 <a href="mailto:info@hachidori-farm.com">info@hachidori-farm.com</a></p>
+    <a class="btn" href="form.html">お問い合わせフォームへ</a>
+  </section>
 
   <footer>
-    &copy; 2025 ハチドリドローンサービス
+    &copy; 2025 Hachidori Farm | hachidori-farm.com
   </footer>
+
 </body>
 </html>
