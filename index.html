@@ -50,83 +50,18 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      animation: slide 25s infinite;
+      animation: slide 52s infinite;
     }
 
-    .slideshow img:nth-child(1) { animation-delay: 0s; }
-    .slideshow img:nth-child(2) { animation-delay: 5s; }
-    .slideshow img:nth-child(3) { animation-delay: 10s; }
-    .slideshow img:nth-child(4) { animation-delay: 15s; }
-    .slideshow img:nth-child(5) { animation-delay: 20s; }
-
-    @keyframes slide {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      30% { opacity: 1; }
-      40% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #7b3fe4;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #f8f8f8;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="assets/logo.png" alt="Hachidori Farm Logo" />
-    <nav>
-      <a href="#">ホーム</a>
-      <a href="#">事業内容</a>
-      <a href="#">農作物</a>
-      <a href="#">ドローンサービス</a>
-      <a href="#">お問い合わせ</a>
-    </nav>
-  </header>
-
-  <div class="slideshow">
-    <img src="assets/slide1.jpg" alt="農場風景1">
-    <img src="assets/slide2.jpg" alt="農場風景2">
-    <img src="assets/slide3.jpg" alt="農場風景3">
-    <img src="assets/slide4.jpg" alt="農場風景4">
-    <img src="assets/slide5.jpg" alt="農場風景5">
-     <img src="assets/slide6.jpg" alt="農場風景6">
-     <img src="assets/slide7.jpg" alt="農場風景7">
-     <img src="assets/slide8.jpg" alt="農場風景8">
-     <img src="assets/slide9.jpg" alt="農場風景9">
-     <img src="assets/slide10.jpg" alt="農場風景10">
-     <img src="assets/slide11.jpg" alt="農場風景11">
-     <img src="assets/slide12.jpg" alt="農場風景12">
-     <img src="assets/slide13.jpg" alt="農場風景13">
-  </div>
-
-  <section>
-    <h1>Hachidori Farm</h1>
-    <p>
-      私たちは、自然との共生を大切にしながら、<br>
-      オリーブ・水稲・ブルーベリー・いちじくを育てています。<br>
-      ドローンサービスを活用し、持続可能な農業を追求しています。
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Hachidori Farm. All Rights Reserved.
-  </footer>
-</body>
-</html>
+    /* 各画像の表示タイミング */
+    /* 13枚 × 4秒 = 52秒ループ */
+    .slideshow img:nth-child(1)  { animation-delay: 0s; }
+    .slideshow img:nth-child(2)  { animation-delay: 4s; }
+    .slideshow img:nth-child(3)  { animation-delay: 8s; }
+    .slideshow img:nth-child(4)  { animation-delay: 12s; }
+    .slideshow img:nth-child(5)  { animation-delay: 16s; }
+    .slideshow img:nth-child(6)  { animation-delay: 20s; }
+    .slideshow img:nth-child(7)  { animation-delay: 24s; }
+    .slideshow img:nth-child(8)  { animation-delay: 28s; }
+    .slideshow img:nth-child(9)  { animation-delay: 32s; }
+    .slide
