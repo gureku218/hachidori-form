@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: "Noto Sans JP", sans-serif;
-      background-color: #fff;
+      background-color: #fffaf3; /* サンドベージュ系 */
       color: #333;
     }
 
@@ -17,8 +17,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
-      background-color: #f8f8f8;
-      border-bottom: 1px solid #ddd;
+      background-color: #f7f3ea;
+      border-bottom: 1px solid #d9d3c3;
     }
 
     header img {
@@ -53,8 +53,6 @@
       animation: slide 52s infinite;
     }
 
-    /* 各画像の表示タイミング */
-    /* 13枚 × 4秒 = 52秒ループ */
     .slideshow img:nth-child(1)  { animation-delay: 0s; }
     .slideshow img:nth-child(2)  { animation-delay: 4s; }
     .slideshow img:nth-child(3)  { animation-delay: 8s; }
@@ -88,11 +86,66 @@
       margin-bottom: 1rem;
     }
 
+    /* 事業紹介カード */
+    .business-section {
+      background-color: #fffaf3;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .business-section h2 {
+      font-size: 2rem;
+      color: #5f4a3d;
+      margin-bottom: 2rem;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      color: #7b3fe4;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #f8f8f8;
-      border-top: 1px solid #ddd;
+      background-color: #f7f3ea;
+      border-top: 1px solid #d9d3c3;
       font-size: 0.9rem;
       color: #555;
     }
@@ -133,6 +186,40 @@
       オリーブ・水稲・ブルーベリー・いちじくを栽培し、<br>
       ドローン技術で次世代農業に挑戦しています。
     </p>
+  </section>
+
+  <section class="business-section">
+    <h2>事業紹介</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="assets/olive.jpg" alt="オリーブ栽培">
+        <div class="card-content">
+          <h3>オリーブ栽培</h3>
+          <p>国産オリーブの可能性を追求。無農薬・自然循環型で香り豊かなオイルを生産しています。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/rice.jpg" alt="水稲栽培">
+        <div class="card-content">
+          <h3>水稲栽培</h3>
+          <p>豊かな土壌と清流で育てる良質なコシヒカリ。地域の食文化を支える米作りを続けています。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/blueberry.jpg" alt="ブルーベリー観光農園">
+        <div class="card-content">
+          <h3>ブルーベリー観光農園</h3>
+          <p>摘み取り体験ができる観光農園を運営。自然の中で甘くて新鮮なブルーベリーを楽しめます。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/drone.jpg" alt="ドローンサービス">
+        <div class="card-content">
+          <h3>ドローンサービス</h3>
+          <p>農薬散布やモニタリングをドローンで効率化。地域農家のスマート農業をサポートしています。</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
