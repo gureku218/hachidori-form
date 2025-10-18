@@ -3,49 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ドローンサービス | Hachidori Farm</title>
+  <title>Hachidori Farm | 自然と共に、未来を耕す</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body class="bg-sand">
-  <header class="header">
-    <a href="index.html" class="logo">Hachidori Farm</a>
-    <nav>
-      <a href="drone.html" class="active">ドローン</a>
-      <a href="olive.html">オリーブ</a>
-      <a href="rice.html">水稲</a>
-      <a href="fruits.html">ブルーベリー＆いちじく</a>
-    </nav>
-  </header>
+  <style>
+    /* -------------------------------
+       ベース設定
+    --------------------------------*/
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      background-color: #f6f1e7;
+      color: #333;
+      overflow-x: hidden;
+    }
 
-  <section class="hero">
-    <img src="images/drone_main.jpg" alt="ドローン散布風景" class="hero-img" />
-    <div class="hero-overlay">
-      <h1>ドローンサービス</h1>
-      <p>テクノロジーで農業を支える、次世代の農業支援サービス</p>
-    </div>
-  </section>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-  <main class="content">
-    <h2>農薬・肥料の散布を効率化</h2>
-    <p>
-      ハチドリファームのドローンサービスでは、最新の農業用ドローンを使用し、
-      10aあたり2,000円の低コストで精密な農薬・肥料散布を行います。
-      農作業の負担を軽減し、品質と収量の向上をサポートします。
-    </p>
+    header img {
+      height: 48px;
+    }
 
-    <div class="gallery">
-      <img src="images/drone1.jpg" alt="ドローン散布1" />
-      <img src="images/drone2.jpg" alt="ドローン散布2" />
-      <img src="images/drone3.jpg" alt="ドローン散布3" />
-    </div>
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
 
-    <div class="cta">
-      <a href="https://hachidori-farm.com/form" class="btn-primary">散布を依頼する</a>
-    </div>
-  </main>
+    nav a:hover {
+      color: #8a5c2e;
+    }
 
-  <footer class="footer">
-    <p>© 2025 Hachidori Farm</p>
-  </footer>
-</body>
-</html>
+    /* -------------------------------
+       ヒーローセクション（スライド）
+    --------------------------------*/
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .hero img.active {
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 15%;
+      left: 10%;
+      color: white;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    .hero-overlay h1 {
+      font-size: 3rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-overlay p {
+      font-size: 1.3rem;
+    }
+
+    /* -------------------------------
+       事業紹介セクション
+    --------------------------------*/
+    .business-section {
+      position: relative;
+      text-align: center;
+      padding: 5rem 5%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .business-section h2 {
+      font-size: 2rem;
+      color: #8a5c2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .business-section .subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .business-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .business-cards .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .business-cards .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .business-cards .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .business-cards .card h3 {
+      color: #8a5c2e;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .business-cards .card p {
+      padding: 0 1rem;
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .btn-more {
+      display: inline-block;
+      background: #8a5c2e;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 1rem 0 1.5rem;
+      transition: background 0.3s;
+    }
+
+    .btn-more:hover {
+      background: #a66d3c;
+    }
+
+    /* -------------------------------
+
+    
