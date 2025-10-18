@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hachidori Farm | 自然と共に、未来を耕す</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Hachidori Farm</title>
   <style>
-    /* -------------------------------
-       ベース設定
-    --------------------------------*/
     body {
       margin: 0;
       font-family: "Noto Sans JP", sans-serif;
-      background-color: #f6f1e7;
+      background-color: #fffaf3;
       color: #333;
       overflow-x: hidden;
     }
@@ -20,20 +16,19 @@
     header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 2rem;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #d9d3c3;
+      z-index: 10;
     }
 
     header img {
-      height: 48px;
+      height: 60px;
     }
 
     nav a {
@@ -41,127 +36,216 @@
       text-decoration: none;
       color: #333;
       font-weight: 600;
-      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #8a5c2e;
+      color: #7b3fe4;
     }
 
-    /* -------------------------------
-       ヒーローセクション（スライド）
-    --------------------------------*/
-    .hero {
-      position: relative;
+    /* 背景スライドショー */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100vh;
       overflow: hidden;
+      z-index: -1;
     }
 
-    .hero img {
+    .slideshow img {
       position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 2s ease-in-out;
+      animation: slide 52s infinite;
     }
 
-    .hero img.active {
-      opacity: 1;
+    .slideshow img:nth-child(1)  { animation-delay: 0s; }
+    .slideshow img:nth-child(2)  { animation-delay: 4s; }
+    .slideshow img:nth-child(3)  { animation-delay: 8s; }
+    .slideshow img:nth-child(4)  { animation-delay: 12s; }
+    .slideshow img:nth-child(5)  { animation-delay: 16s; }
+    .slideshow img:nth-child(6)  { animation-delay: 20s; }
+    .slideshow img:nth-child(7)  { animation-delay: 24s; }
+    .slideshow img:nth-child(8)  { animation-delay: 28s; }
+    .slideshow img:nth-child(9)  { animation-delay: 32s; }
+    .slideshow img:nth-child(10) { animation-delay: 36s; }
+    .slideshow img:nth-child(11) { animation-delay: 40s; }
+    .slideshow img:nth-child(12) { animation-delay: 44s; }
+    .slideshow img:nth-child(13) { animation-delay: 48s; }
+
+    @keyframes slide {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      25% { opacity: 1; }
+      30% { opacity: 0; }
+      100% { opacity: 0; }
     }
 
-    .hero-overlay {
-      position: absolute;
-      bottom: 15%;
-      left: 10%;
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.5);
-      z-index: 10;
+      background: rgba(0,0,0,0.3);
     }
 
-    .hero-overlay h1 {
+    .hero h1 {
       font-size: 3rem;
-      margin: 0 0 0.5rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
-    .hero-overlay p {
-      font-size: 1.3rem;
+    .hero p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
     }
 
-    /* -------------------------------
-       事業紹介セクション
-    --------------------------------*/
+    /* 事業紹介セクション */
     .business-section {
       position: relative;
+      margin-top: -5rem;
+      padding: 6rem 2rem 5rem;
+      background-color: rgba(255, 250, 243, 0.9);
+      backdrop-filter: blur(6px);
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 5rem 5%;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
     }
 
     .business-section h2 {
       font-size: 2rem;
-      color: #8a5c2e;
-      margin-bottom: 0.5rem;
-    }
-
-    .business-section .subtitle {
-      color: #666;
+      color: #5f4a3d;
       margin-bottom: 2rem;
     }
 
-    .business-cards {
+    .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .business-cards .card {
-      background: #fff;
-      border-radius: 16px;
+    .card {
+      background-color: #fff;
+      border-radius: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .business-cards .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     }
 
-    .business-cards .card img {
+    .card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
 
-    .business-cards .card h3 {
-      color: #8a5c2e;
-      margin: 1rem 0 0.5rem;
+    .card-content {
+      padding: 1.5rem;
     }
 
-    .business-cards .card p {
-      padding: 0 1rem;
+    .card-content h3 {
+      color: #7b3fe4;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
       color: #555;
-      font-size: 0.9rem;
       line-height: 1.6;
     }
 
-    .btn-more {
-      display: inline-block;
-      background: #8a5c2e;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 1rem 0 1.5rem;
-      transition: background 0.3s;
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f7f3ea;
+      border-top: 1px solid #d9d3c3;
+      font-size: 0.9rem;
+      color: #555;
     }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Hachidori Farm Logo" />
+    <nav>
+      <a href="#">ホーム</a>
+      <a href="#">事業内容</a>
+      <a href="#">農作物</a>
+      <a href="#">ドローンサービス</a>
+      <a href="#">お問い合わせ</a>
+    </nav>
+  </header>
 
-    .btn-more:hover {
-      background: #a66d3c;
-    }
+  <div class="slideshow">
+    <img src="assets/slide1.jpg" alt="農場風景1">
+    <img src="assets/slide2.jpg" alt="農場風景2">
+    <img src="assets/slide3.jpg" alt="農場風景3">
+    <img src="assets/slide4.jpg" alt="農場風景4">
+    <img src="assets/slide5.jpg" alt="農場風景5">
+    <img src="assets/slide6.jpg" alt="農場風景6">
+    <img src="assets/slide7.jpg" alt="農場風景7">
+    <img src="assets/slide8.jpg" alt="農場風景8">
+    <img src="assets/slide9.jpg" alt="農場風景9">
+    <img src="assets/slide10.jpg" alt="農場風景10">
+    <img src="assets/slide11.jpg" alt="農場風景11">
+    <img src="assets/slide12.jpg" alt="農場風景12">
+    <img src="assets/slide13.jpg" alt="農場風景13">
+  </div>
 
-    /* -------------------------------
+  <section class="hero">
+    <h1>Hachidori Farm</h1>
+    <p>自然と調和し、地域と共に歩む農業を目指して。</p>
+  </section>
 
-    
+  <section class="business-section">
+    <h2>事業紹介</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="assets/olive.jpg" alt="オリーブ栽培">
+        <div class="card-content">
+          <h3>オリーブ栽培</h3>
+          <p>国産オリーブの可能性を追求。無農薬・自然循環型で香り豊かなオイルを生産しています。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/rice.jpg" alt="水稲栽培">
+        <div class="card-content">
+          <h3>水稲栽培</h3>
+          <p>豊かな土壌と清流で育てる良質なコシヒカリ。地域の食文化を支える米作りを続けています。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/blueberry.jpg" alt="ブルーベリー観光農園">
+        <div class="card-content">
+          <h3>ブルーベリー観光農園</h3>
+          <p>摘み取り体験ができる観光農園を運営。自然の中で甘くて新鮮なブルーベリーを楽しめます。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/drone.jpg" alt="ドローンサービス">
+        <div class="card-content">
+          <h3>ドローンサービス</h3>
+          <p>農薬散布やモニタリングをドローンで効率化。地域農家のスマート農業をサポートしています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Hachidori Farm. All Rights Reserved.
+  </footer>
+</body>
+</html>
