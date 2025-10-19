@@ -1,9 +1,9 @@
 /* 全体レイアウト */
 body {
   margin: 0;
-  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-  color: #3E3A39;
-  background: #FAF7F2;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Meiryo', sans-serif;
+  color: #333;
+  background: #fff8f0; /* サンドベージュ系の柔らかい背景に合わせるならおすすめ */
   line-height: 1.8;
 }
 
@@ -255,4 +255,29 @@ body {
   .detail-img {
     width: 90%;
   }
+}
+.hero-logo {
+  width: 600px;              /* お好みでサイズ調整可能 */
+  max-width: 190%;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+p, li {
+  font-weight: 400;
 }
