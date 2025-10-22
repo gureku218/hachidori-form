@@ -100,13 +100,13 @@ body {
 
 /* 農園紹介・お問い合わせを左揃えに */
 .about, .contact {
-    text-align: left;
-    max-width: 92%;
-    backdrop-filter: blur(4px);
-    margin: 0px auto;
-    padding: 6rem 2rem;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 16px;
+  text-align: left;
+  max-width: 92%;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.92); /* 背景スライド上で読みやすく */
+  backdrop-filter: blur(4px);             /* 背景ぼかし効果 */
+  border-radius: 16px;
 }
 
 /* 見出しデザイン */
