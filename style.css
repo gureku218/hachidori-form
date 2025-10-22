@@ -1,13 +1,13 @@
-/* ===== 基本設定 ===== */
+/* ===== 全体レイアウト ===== */
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
   color: #333;
-  background: #fffaf5;
+  background: #fffaf5; /* 柔らかいベージュ背景 */
   line-height: 1.8;
 }
 
-/* ===== 固定ヘッダー ===== */
+/* ===== ヘッダー ===== */
 .header {
   position: fixed;
   top: 0;
@@ -44,15 +44,17 @@ body {
   color: #A68B5B;
 }
 
-/* ===== 背景スライドショー ===== */
+/* ===== スライドショー ===== */
 .hero {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
   height: 100vh;
   overflow: hidden;
-  z-index: -1;
+  margin-top: 80px; /* ヘッダー分の余白 */
+}
+
+.slideshow-container {
+  position: absolute;
+  inset: 0;
 }
 
 .slideshow {
@@ -62,18 +64,18 @@ body {
 
 .slideshow img {
   position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 3s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 
-.slideshow img.active {
+.slideshow img:first-child {
   opacity: 1;
 }
 
+/* ===== ヒーローテキスト（中央） ===== */
 .hero-text {
   position: absolute;
   top: 50%;
@@ -92,40 +94,32 @@ body {
   animation: fadeIn 2s ease-in-out;
 }
 
-/* ===== スクロール領域 ===== */
-.main-content {
-  position: relative;
-  z-index: 1;
-  margin-top: 100vh;
-}
-
-/* ===== セクション共通スタイル ===== */
+/* ===== セクション（共通） ===== */
 .about, .services, .contact {
-  text-align: left;
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
   max-width: 900px;
-  margin: 4rem auto;
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(5px);
+  margin: 6rem auto;
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* ===== セクション見出し ===== */
-.section-title {
+/* ===== 見出し ===== */
+h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1.5rem;
   color: #A68B5B;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  color: #3E3A39;
 }
 
 /* ===== 農園紹介 ===== */
-.about h3 {
-  margin-top: 2rem;
-  color: #3E3A39;
-  font-size: 1.2rem;
+.about p {
+  text-align: left;
+  font-size: 1.1rem;
 }
 
 /* ===== 事業紹介 ===== */
@@ -135,7 +129,7 @@ body {
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -147,22 +141,22 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
-  width: 30%;
+  width: 40%;
   height: 100px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card h3 {
-  margin: 1rem;
+  margin: 1rem 0;
   color: #A68B5B;
 }
 
@@ -170,9 +164,15 @@ body {
 .contact-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; /* 左揃え */
   gap: 1rem;
   width: 100%;
+  margin-top: 2rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #3E3A39;
 }
 
 .contact-form input,
@@ -189,7 +189,7 @@ body {
 .contact-form textarea:focus {
   outline: none;
   border-color: #A68B5B;
-  box-shadow: 0 0 4px rgba(166, 139, 91, 0.4);
+  box-shadow: 0 0 5px rgba(166, 139, 91, 0.4);
 }
 
 /* 送信ボタン中央揃え */
@@ -201,7 +201,7 @@ body {
 .btn {
   display: inline-block;
   margin-top: 1.5rem;
-  padding: 0.8rem 2.5rem;
+  padding: 0.8rem 2rem;
   background: #D8C4A0;
   color: #3E3A39;
   border-radius: 30px;
@@ -217,43 +217,31 @@ body {
 
 /* ===== フッター ===== */
 .footer {
-  background: rgba(62, 58, 57, 0.9);
+  background: #3E3A39;
   color: #E8E4DE;
   text-align: center;
   padding: 1.5rem;
+  font-size: 0.9rem;
 }
 
-/* ===== thanks.html用メッセージ ===== */
-.thanks-message {
-  position: relative;
-  z-index: 2;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(4px);
-}
-
-.thanks-message h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.thanks-message p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  line-height: 1.8;
-  animation: fadeIn 2.2s ease-in-out;
-}
-
-/* ===== アニメーション ===== */
+/* ===== フェードインアニメーション ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== レスポンシブ対応 ===== */
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 90%;
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about, .services, .contact {
+    margin: 3rem 1rem;
+    padding: 3rem 1.5rem;
+  }
 }
