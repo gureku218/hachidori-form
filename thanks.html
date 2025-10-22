@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせありがとうございます | Hachidori Farm</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 背景スライドショー -->
+  <section class="hero">
+    <div class="slideshow">
+      <img src="assets/slide1.jpg" alt="背景1" class="active">
+      <img src="assets/slide2.jpg" alt="背景2">
+      <img src="assets/slide3.jpg" alt="背景3">
+      <img src="assets/slide4.jpg" alt="背景4">
+      <img src="assets/slide5.jpg" alt="背景5">
+    </div>
+  </section>
+
+  <!-- メインメッセージ -->
+  <div class="thanks-message">
+    <h1>お問い合わせありがとうございます</h1>
+    <p>ご入力いただいた内容を送信いたしました。<br>担当者より折り返しご連絡いたしますので、今しばらくお待ちください。</p>
+    <a href="index.html" class="btn">トップページに戻る</a>
+  </div>
+
+  <!-- スライドショー制御 -->
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
