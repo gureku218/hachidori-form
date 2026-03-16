@@ -40,7 +40,7 @@
         }
 
         #contact {
-            scroll-margin-top: 120px;
+            scroll-margin-top: 160px;
         }
 
         a:focus-visible,
@@ -333,7 +333,7 @@
             }
 
             #contact {
-                scroll-margin-top: 140px;
+                scroll-margin-top: 180px;
             }
         }
     </style>
@@ -413,6 +413,16 @@
                 message.classList.remove("error");
             }
         }
+
+        window.addEventListener("load", () => {
+            if (location.hash === "#contact") {
+                const el = document.getElementById("contact");
+                if (el) {
+                    const y = el.getBoundingClientRect().top + window.pageYOffset - 200;
+                    window.scrollTo({ top: y, behavior: "auto" });
+                }
+            }
+        });
     </script>
 
 </head>
