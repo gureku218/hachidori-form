@@ -40,7 +40,7 @@
         }
 
         #contact {
-            scroll-margin-top: 180px;
+            scroll-margin-top: 0;
         }
 
         a:focus-visible,
@@ -333,7 +333,7 @@
             }
 
             #contact {
-                scroll-margin-top: 200px;
+                scroll-margin-top: 0;
             }
         }
     </style>
@@ -414,15 +414,24 @@
             }
         }
 
+        function scrollToContact() {
+            if (location.hash !== "#contact") return;
+            const el = document.getElementById("contact");
+            if (!el) return;
+            const nav = document.querySelector("nav");
+            const offset = (nav ? nav.offsetHeight : 80) + 16;
+            const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: y, behavior: "auto" });
+        }
+
         window.addEventListener("load", () => {
-            if (location.hash === "#contact") {
-                const el = document.getElementById("contact");
-                if (el) {
-                    const y = el.getBoundingClientRect().top + window.pageYOffset - 200;
-                    window.scrollTo({ top: y, behavior: "auto" });
-                }
-            }
+            // LINE内ブラウザのレイアウト確定後に補正
+            scrollToContact();
+            setTimeout(scrollToContact, 300);
         });
+
+        window.addEventListener("hashchange", scrollToContact);
+        window.addEventListener("pageshow", scrollToContact);
     </script>
 
 </head>
