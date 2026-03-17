@@ -10,7 +10,7 @@ body {
 .header {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: stretch;
   background: rgba(250, 247, 242, 0.95);
   display: flex;
   justify-content: space-between;
