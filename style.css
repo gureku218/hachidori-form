@@ -263,3 +263,31 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   line-height: 1.8;
 }
+/* チバニアンリンク追加 */
+.partner-links {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.partner-links p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.partner-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.partner-links li {
+  margin-bottom: 5px;
+}
+
+.partner-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.partner-links a:hover {
+  text-decoration: underline;
+}
