@@ -1,3 +1,4 @@
+/* ===== 共通ベース設定 ===== */
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
@@ -6,20 +7,20 @@ body {
   line-height: 1.8;
 }
 
-/* 固定ヘッダー */
+/* ===== 固定ヘッダー（Safari対応版） ===== */
 .header {
   position: fixed;
   top: 0;
-  left: 0;                      /* 【重要】左端を固定し、位置のズレを防ぐ */
-  width: 100%;                  /* 【バグ修正】stretchから「100%」に変更しSafariに対応 */
-  box-sizing: border-box;       /* 【重要】100%にした際、paddingが外にはみ出るのを防ぐ */
+  left: 0;                      /* 左端を固定 */
+  width: 100%;                  /* サファリ対策：横幅100% */
+  box-sizing: border-box;       /* パディングのはみ出し防止 */
   background: rgba(250, 247, 242, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  z-index: 1000;
+  z-index: 2000;                /* 最前面に配置 */
 }
 
 .logo {
@@ -45,7 +46,7 @@ body {
   color: #A68B5B;
 }
 
-/* 固定背景スライドショー */
+/* ===== 固定背景スライドショー ===== */
 .hero {
   position: fixed;
   top: 0;
@@ -93,32 +94,41 @@ body {
   animation: fadeIn 2s ease-in-out;
 }
 
-/* メイン部分（スクロール対象） */
+/* ===== メイン部分（スクロール対象） ===== */
 .main-content {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   margin-top: 100vh;
 }
 
-/* 農園紹介・お問い合わせを左揃えに */
+/* 各セクション共通のカード化 */
 .about, .contact {
   text-align: left;
   max-width: 92%;
   margin: 0 auto;
   padding: 6rem 2rem;
-  background: rgba(255, 255, 255, 0.92); /* 背景スライド上で読みやすく */
-  backdrop-filter: blur(4px);             /* 背景ぼかし効果 */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
   border-radius: 16px;
+  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
-/* 見出しデザイン */
+/* 共通見出しスタイル */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #A68B5B;
+  font-weight: 700;
+}
+
 .about h2, .contact h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #A68B5B;
 }
 
-/* 事業紹介 */
+/* ===== 事業紹介（サービス） ===== */
 .services {
   padding: 6rem 2rem;
   text-align: center;
@@ -127,6 +137,7 @@ body {
   border-radius: 16px;
   max-width: 92%;
   margin: 4rem auto;
+  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
 .service-cards {
@@ -136,6 +147,7 @@ body {
   margin-top: 3rem;
 }
 
+/* 事業カードの最適化 */
 .card {
   background: #fff;
   border-radius: 16px;
@@ -143,7 +155,10 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 1rem;
+  padding: 0;                   /* 画像を端まで綺麗に見せるため0に変更 */
+  overflow: hidden;             /* 画像の角丸はみ出しを防止 */
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -151,18 +166,20 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* 【バグ修正】スマホでも画像が綺麗にカード上部に収まるよう調整 */
 .card img {
-  width: 30%;
-  height: 100px;
+  width: 100%;
+  height: 180px;
   object-fit: cover;
 }
 
 .card h3 {
-  margin: 1rem;
+  margin: 1.5rem 1rem;
   color: #A68B5B;
+  font-size: 1.2rem;
 }
 
-/* お問い合わせフォーム */
+/* ===== お問い合わせフォーム ===== */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -179,6 +196,7 @@ body {
   border-radius: 6px;
   font-size: 1rem;
   background: #fff;
+  box-sizing: border-box;
 }
 
 .contact-form input:focus,
@@ -188,7 +206,7 @@ body {
   box-shadow: 0 0 4px rgba(166, 139, 91, 0.4);
 }
 
-/* ボタン */
+/* ===== ボタン ===== */
 .btn {
   display: inline-block;
   margin-top: 1.5rem;
@@ -206,34 +224,62 @@ body {
   color: #fff;
 }
 
-/* フッター */
+.center-text { text-align: center; }
+.center-btn { align-self: center; }
+
+/* ===== フッター ＆ 提携リンク最適化 ===== */
 .footer {
   background: rgba(62, 58, 57, 0.9);
   color: #E8E4DE;
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
-/* アニメーション */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.partner-links {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-.center-text { text-align: center; }
-.center-btn { align-self: center; }
-/* 共通見出しスタイル */
-.section-title {
-  text-align: center;     /* 中央揃え */
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #A68B5B;         /* 金茶系の落ち着いたトーンに統一 */
-  font-weight: 700;
+.partner-links p {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
+
+.partner-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.partner-links li {
+  margin-bottom: 5px;
+}
+
+/* 【バグ修正】暗い背景で見えなくなっていた文字色を明るいベージュに変更 */
+.partner-links a {
+  color: #E8E4DE;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.partner-links a:hover {
+  color: #A68B5B;
+  text-decoration: underline;
+}
+
+/* ===== その他パーツ ===== */
+.detail-text {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+}
+
 /* 送信完了メッセージ用 */
 .thanks-message {
   position: relative;
-  z-index: 2;
+  z-index: 20;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -258,38 +304,34 @@ body {
   line-height: 1.8;
   animation: fadeIn 2.2s ease-in-out;
 }
-.detail-text {
-  background: rgba(255,255,255,0.85);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  line-height: 1.8;
-}
-/* チバニアンリンク追加 */
-.partner-links {
-  margin-top: 20px;
-  font-size: 14px;
+
+/* アニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.partner-links p {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.partner-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.partner-links li {
-  margin-bottom: 5px;
-}
-
-.partner-links a {
-  color: #333;
-  text-decoration: none;
-}
-
-.partner-links a:hover {
-  text-decoration: underline;
+/* ==========================================
+   📱 スマホ・タブレット用 レスポンシブ設定（追加）
+   ========================================== */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem;       /* ヘッダーの左右余白をスマホ用に狭める */
+  }
+  .logo {
+    height: 45px;               /* ロゴを少し小さく */
+  }
+  .nav ul {
+    gap: 1rem;                  /* メニューの間隔を狭めて画面内に収める */
+  }
+  .nav a {
+    font-size: 0.85rem;         /* 文字サイズをスマホ最適化 */
+  }
+  .about, .services, .contact {
+    padding: 3rem 1.2rem;       /* 縦横の余白を縮めて文字のはみ出しを防止 */
+    max-width: 95%;
+  }
+  .section-title, .about h2, .contact h2 {
+    font-size: 1.6rem;          /* 見出しをスマホで見やすいサイズに */
+  }
 }
