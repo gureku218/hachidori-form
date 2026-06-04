@@ -10,7 +10,9 @@ body {
 .header {
   position: fixed;
   top: 0;
-  width: stretch;
+  left: 0;                      /* 【重要】左端を固定し、位置のズレを防ぐ */
+  width: 100%;                  /* 【バグ修正】stretchから「100%」に変更しSafariに対応 */
+  box-sizing: border-box;       /* 【重要】100%にした際、paddingが外にはみ出るのを防ぐ */
   background: rgba(250, 247, 242, 0.95);
   display: flex;
   justify-content: space-between;
