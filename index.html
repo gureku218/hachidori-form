@@ -2,28 +2,37 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1YVG5B9VR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X1YVG5B9VR');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1YVG5B9VR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X1YVG5B9VR');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hachidori Farm</title>
+  
+  <!-- 【改善】SEO対策：タイトルとディスクリプションの最適化 -->
+  <title>ハチドリファーム合同会社｜持続可能な次世代農業・ドローンサービス（茨城・千葉）</title>
+  <meta name="description" content="ハチドリファーム合同会社は、茨城県取手市・千葉県市原市を拠点に、オリーブやブルーベリーなどのこだわり農産物栽培、ドローンを活用したスマート農業（農薬散布サービス）、IoT開発、愛犬と楽しめるキャンプ場やカフェの運営（予定）を展開しています。" />
+  
+  <!-- 【改善】SNSシェア対策（OGP設定）※必要に応じて画像URLなどを設定してください -->
+  <meta property="og:title" content="ハチドリファーム合同会社｜持続可能な次世代農業・ドローンサービス" />
+  <meta property="og:description" content="自然と共に、持続可能な農業を。スマート農業から体験型ビジネスまで、ハチドリファームの挑戦。" />
+  <meta property="og:url" content="https://www.hachidori-farm.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ハチドリファーム合同会社" />
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
   
-
 <body>
   <!-- ===== ヘッダー ===== -->
   <header class="header">
-    <img src="assets/logo.png" alt="Hachidori Farm ロゴ" class="logo">
+    <img src="assets/logo.png" alt="Hachidori Farm（ハチドリファーム） 公式ロゴ" class="logo">
     
-    <nav class="nav">
+    <nav class="nav" aria-label="メインナビゲーション">
       <ul>
         <li><a href="#about">農園紹介</a></li>
         <li><a href="#services">事業紹介</a></li>
@@ -36,78 +45,85 @@
   <!-- ===== 背景固定スライドショー ===== -->
   <section class="hero">
     <div class="slideshow">
-      <img src="assets/slide1.jpg" alt="農場風景1" class="active">
-      <img src="assets/slide2.jpg" alt="農場風景2">
-      <img src="assets/slide3.jpg" alt="農場風景3">
-      <img src="assets/slide4.jpg" alt="農場風景4">
-      <img src="assets/slide5.jpg" alt="農場風景5">
-      <img src="assets/slide6.jpg" alt="農場風景6">
-      <img src="assets/slide7.jpg" alt="農場風景7">
-      <img src="assets/slide8.jpg" alt="農場風景8">
-      <img src="assets/slide9.jpg" alt="農場風景9">
-      <img src="assets/slide10.jpg" alt="農場風景10">
-      <img src="assets/slide11.jpg" alt="農場風景11">
-      <img src="assets/slide12.jpg" alt="農場風景12">
-      <img src="assets/slide13.jpg" alt="農場風景13">
+      <!-- 【改善】最初の数枚以外には loading="lazy" を付与し、軽量化とSEO評価アップ -->
+      <img src="assets/slide1.jpg" alt="ハチドリファームの農場風景 1" class="active">
+      <img src="assets/slide2.jpg" alt="ハチドリファームの農場風景 2">
+      <img src="assets/slide3.jpg" alt="ハチドリファームの農場風景 3">
+      <img src="assets/slide4.jpg" alt="ハチドリファームの農場風景 4" loading="lazy">
+      <img src="assets/slide5.jpg" alt="ハチドリファームの農場風景 5" loading="lazy">
+      <img src="assets/slide6.jpg" alt="ハチドリファームの農場風景 6" loading="lazy">
+      <img src="assets/slide7.jpg" alt="ハチドリファームの農場風景 7" loading="lazy">
+      <img src="assets/slide8.jpg" alt="ハチドリファームの農場風景 8" loading="lazy">
+      <img src="assets/slide9.jpg" alt="ハチドリファームの農場風景 9" loading="lazy">
+      <img src="assets/slide10.jpg" alt="ハチドリファームの農場風景 10" loading="lazy">
+      <img src="assets/slide11.jpg" alt="ハチドリファームの農場風景 11" loading="lazy">
+      <img src="assets/slide12.jpg" alt="ハチドリファームの農場風景 12" loading="lazy">
+      <img src="assets/slide13.jpg" alt="ハチドリファームの農場風景 13" loading="lazy">
     </div>
     <div class="hero-text">
-      <img src="assets/siro.png" alt="Hachidori Farm ロゴ" class="hero-logo">
+      <img src="assets/siro.png" alt="Hachidori Farm ロゴ（白）" class="hero-logo">
       <p>自然と共に、持続可能な農業を。</p>
     </div>
   </section>
 
   <!-- ===== メインコンテンツ（背景の上にスクロール表示） ===== -->
-  <div class="main-content">
+  <main class="main-content">
 
     <!-- 農園紹介 -->
- <section id="about" class="about">
-  <h2 class="section-title">農園紹介</h2><br>
-  <p>Hachidori Farmは、オリーブ・水稲・ブルーベリー・いちじくを中心に栽培し、ドローンサービスを通じて次世代農業の実現を目指しています。</p>
-  <h3>所在地</h3>
-  <p>取手第1圃場：茨城県取手市井野台</p>
-  <p>取手第2圃場：茨城県取手市井野井野1140-1・1141・1148〜1150</p>
- 
-</section>
+    <section id="about" class="about">
+      <h2 class="section-title">農園紹介</h2>
+      <p>Hachidori Farm（ハチドリファーム）は、オリーブ・水稲・ブルーベリー・いちじくを中心に栽培し、ドローンサービスを通じて次世代のスマート農業の実現を目指しています。</p>
+      
+      <div class="location-info">
+        <h3>圃場（ほじょう）所在地</h3>
+        <p><strong>取手 第1圃場：</strong>茨城県取手市井野台</p>
+        <p><strong>取手 第2圃場：</strong>茨城県取手市井野井野1140-1・1141・1148〜1150</p>
+        
+      </div>
+    </section>
 
-<section id="services" class="services">
-  <h2 class="section-title">事業紹介</h2><br>
-  <div class="service-cards">
-    <a href="olive.html" class="card"><img src="assets/olive.png"><h3>オリーブ栽培</h3></a>
-    <a href="rice.html" class="card"><img src="assets/rice.png"><h3>水稲栽培</h3></a>
-    <a href="blueberry.html" class="card"><img src="assets/blueberry.png"><h3>ブルーベリー・いちじく</h3></a>
-    <a href="drone.html" class="card"><img src="assets/drone.png"><h3>ドローンサービス</h3></a>
-    <a href="soon.html" class="card"><img src="assets/camp.png"><h3>Camping with dogs</h3></a>
-    <a href="soon.html" class="card"><img src="assets/cafe.png"><h3>Pet-friendly Cafe</h3></a>
-    <a href="iot.html" class="card"><img src="assets/Iot.png"><h3>農業IoT開発</h3></a>
-  </div>
-</section>
+    <!-- 事業紹介 -->
+    <section id="services" class="services">
+      <h2 class="section-title">事業紹介</h2>
+      <div class="service-cards">
+        <!-- 【改善】すべての画像に適切な alt 属性を設定 -->
+        <a href="olive.html" class="card"><img src="assets/olive.png" alt="オリーブ栽培事業"><h3>オリーブ栽培</h3></a>
+        <a href="rice.html" class="card"><img src="assets/rice.png" alt="水稲栽培事業"><h3>水稲栽培</h3></a>
+        <a href="blueberry.html" class="card"><img src="assets/blueberry.png" alt="ブルーベリー・いちじく栽培事業"><h3>ブルーベリー・いちじく</h3></a>
+        <a href="drone.html" class="card"><img src="assets/drone.png" alt="ドローンサービス・スマート農業"><h3>ドローンサービス</h3></a>
+        <a href="soon.html" class="card"><img src="assets/camp.png" alt="Camping with dogs（愛犬と楽しむキャンプ場・準備中）"><h3>Camping with dogs</h3></a>
+        <a href="soon.html" class="card"><img src="assets/cafe.png" alt="Pet-friendly Cafe（ペットフレンドリーカフェ・予定）"><h3>Pet-friendly Cafe</h3></a>
+        <a href="iot.html" class="card"><img src="assets/Iot.png" alt="農業IoT開発"><h3>農業IoT開発</h3></a>
+      </div>
+    </section>
 
-<section id="contact" class="contact">
-  <div style="text-align:center;">
-    <h2>お問い合わせ</h2>
-    <p>ご質問・ご相談はお気軽にお問い合わせください。</p>
-    
-    <a href="mailto:gure218@gmail.com" class="btn">メールで問い合わせる</a>
-    </div>
-  </section>
+    <!-- お問い合わせ -->
+    <section id="contact" class="contact">
+      <div style="text-align:center;">
+        <h2>お問い合わせ</h2>
+        <p>ドローン散布のご依頼、農業IoTに関するご相談、その他お気軽にお問い合わせください。</p>
+        <a href="mailto:gure218@gmail.com" class="btn">メールで問い合わせる</a>
+      </div>
+    </section>
 
     <!-- フッター -->
     <footer class="footer">
-      <p>© 2025 Hachidori Farm All Rights Reserved.</p>
+      <!-- 【改善】最新の2026年にアップデート -->
+      <p>© 2026 Hachidori Farm All Rights Reserved.</p>
 
-      <!--チバニアンリンク-->
+      <!-- チバニアンリンク -->
       <div class="partner-links">
         <p>関連・提携（教育連携）</p>
         <ul>
           <li>
             <a href="https://chibanian.info/" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/chibanian-logo.png" alt="チバニアン兼業農学校" style="height:40px;">
+              <img src="/assets/chibanian-logo.png" alt="チバニアン兼業農学校 公式サイト" style="height:40px;">
             </a>
           </li>
         </ul>
       </div>
     </footer>
-  </div>
+  </main>
 
   <!-- スライドショー制御 -->
   <script>
