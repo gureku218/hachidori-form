@@ -128,7 +128,6 @@ body {
   color: #A68B5B;
 }
 
-/* ===== 事業紹介（サービス） ===== */
 .services {
   padding: 6rem 2rem;
   text-align: center;
@@ -137,7 +136,6 @@ body {
   border-radius: 16px;
   max-width: 92%;
   margin: 4rem auto;
-  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
 .service-cards {
