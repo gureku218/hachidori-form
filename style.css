@@ -155,12 +155,13 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 1.5rem 1rem;         /* 【変更】内側に上品な余白を復活 */
+  padding: 3rem 1.7rem;         /* 【変更】内側に上品な余白を復活 */
   display: flex;
   flex-direction: column;
   align-items: center;          /* 【重要】中身（画像と文字）をすべて中央揃えにする */
   text-align: center;
   width: 100%;
+  min-height: 240px;            /* 【追加】カードの最小縦幅を240pxに固定し、しっかりした高さに */
   box-sizing: border-box;
 }
 
@@ -172,19 +173,19 @@ body {
 /* 【大幅修正】画像を横いっぱいに広げず、上品なアイコンサイズに固定 */
 .card img {
   width: auto;                  /* 横幅を自動（引き伸ばさない） */
-  max-width: 80px;              /* 【重要】画像の最大横幅を60pxに制限（小さくする） */
-  height: 80px;                 /* 【重要】縦幅も60pxの正方形に固定 */
+  max-width: 90px;              /* 【重要】画像の最大横幅を60pxに制限（小さくする） */
+  height: 90px;                 /* 【重要】縦幅も60pxの正方形に固定 */
   object-fit: contain;          /* 【重要】アイコンが絶対に変形せず、綺麗に収まる設定 */
-  margin-bottom: 0.5rem;        /* 画像と下の文字との間の絶妙なスキマ */
+  margin-bottom: 1.5rem;        /* 画像と下の文字との間の絶妙なスキマ */
   display: block;
 }
 
 /* カード内の文字の調整 */
 .card h3 {
-  margin: 0.5rem 0 0 0;         /* 余白をすっきりリセット */
+  margin: 0;                    /* 余白を完全にリセットしてコントロール */
   color: #A68B5B;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.2rem;            /* 【変更】カードの大きさに合わせて文字も少しだけ堂々と */
+  font-weight: 700;
 }
 /* ===== お問い合わせフォーム ===== */
 .contact-form {
