@@ -128,6 +128,7 @@ body {
   color: #A68B5B;
 }
 
+/* ===== 事業紹介（サービス） ===== */
 .services {
   padding: 6rem 2rem;
   text-align: center;
@@ -136,6 +137,7 @@ body {
   border-radius: 16px;
   max-width: 92%;
   margin: 4rem auto;
+  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
 .service-cards {
@@ -145,6 +147,7 @@ body {
   margin-top: 3rem;
 }
 
+/* 事業カードの最適化 */
 .card {
   background: #fff;
   border-radius: 16px;
@@ -152,7 +155,10 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 1rem;
+  padding: 0;                   /* 画像を端まで綺麗に見せるため0に変更 */
+  overflow: hidden;             /* 画像の角丸はみ出しを防止 */
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -160,15 +166,17 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* 【バグ修正】スマホでも画像が綺麗にカード上部に収まるよう調整 */
 .card img {
-  width: 30%;
-  height: 100px;
+  width: 100%;
+  height: 180px;
   object-fit: cover;
 }
 
 .card h3 {
-  margin: 1rem;
+  margin: 1.5rem 1rem;
   color: #A68B5B;
+  font-size: 1.2rem;
 }
 
 /* ===== お問い合わせフォーム ===== */
