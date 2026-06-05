@@ -147,7 +147,7 @@ body {
   margin-top: 3rem;
 }
 
-/* 事業カードの最適化 */
+/* 事業カードの最適化（画像を中央に小さく配置するスタイル） */
 .card {
   background: #fff;
   border-radius: 16px;
@@ -155,10 +155,13 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 0;                   /* 画像を端まで綺麗に見せるため0に変更 */
-  overflow: hidden;             /* 画像の角丸はみ出しを防止 */
+  padding: 1.5rem 1rem;         /* 【変更】内側に上品な余白を復活 */
   display: flex;
   flex-direction: column;
+  align-items: center;          /* 【重要】中身（画像と文字）をすべて中央揃えにする */
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -166,19 +169,23 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* 【バグ修正】スマホでも画像が綺麗にカード上部に収まるよう調整 */
+/* 【大幅修正】画像を横いっぱいに広げず、上品なアイコンサイズに固定 */
 .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+  width: auto;                  /* 横幅を自動（引き伸ばさない） */
+  max-width: 60px;              /* 【重要】画像の最大横幅を60pxに制限（小さくする） */
+  height: 60px;                 /* 【重要】縦幅も60pxの正方形に固定 */
+  object-fit: contain;          /* 【重要】アイコンが絶対に変形せず、綺麗に収まる設定 */
+  margin-bottom: 0.5rem;        /* 画像と下の文字との間の絶妙なスキマ */
+  display: block;
 }
 
+/* カード内の文字の調整 */
 .card h3 {
-  margin: 1.5rem 1rem;
+  margin: 0.5rem 0 0 0;         /* 余白をすっきりリセット */
   color: #A68B5B;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
-
 /* ===== お問い合わせフォーム ===== */
 .contact-form {
   display: flex;
