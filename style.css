@@ -1,4 +1,3 @@
-/* ===== 共通ベース設定 ===== */
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
@@ -7,20 +6,18 @@ body {
   line-height: 1.8;
 }
 
-/* ===== 固定ヘッダー（Safari対応版） ===== */
+/* 固定ヘッダー */
 .header {
   position: fixed;
   top: 0;
-  left: 0;                      /* 左端を固定 */
-  width: 100%;                  /* サファリ対策：横幅100% */
-  box-sizing: border-box;       /* パディングのはみ出し防止 */
+  width: stretch;
   background: rgba(250, 247, 242, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  z-index: 2000;                /* 最前面に配置 */
+  z-index: 1000;
 }
 
 .logo {
@@ -46,7 +43,7 @@ body {
   color: #A68B5B;
 }
 
-/* ===== 固定背景スライドショー ===== */
+/* 固定背景スライドショー */
 .hero {
   position: fixed;
   top: 0;
@@ -94,41 +91,32 @@ body {
   animation: fadeIn 2s ease-in-out;
 }
 
-/* ===== メイン部分（スクロール対象） ===== */
+/* メイン部分（スクロール対象） */
 .main-content {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   margin-top: 100vh;
 }
 
-/* 各セクション共通のカード化 */
+/* 農園紹介・お問い合わせを左揃えに */
 .about, .contact {
   text-align: left;
   max-width: 92%;
   margin: 0 auto;
   padding: 6rem 2rem;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.92); /* 背景スライド上で読みやすく */
+  backdrop-filter: blur(4px);             /* 背景ぼかし効果 */
   border-radius: 16px;
-  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
-/* 共通見出しスタイル */
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #A68B5B;
-  font-weight: 700;
-}
-
+/* 見出しデザイン */
 .about h2, .contact h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #A68B5B;
 }
 
-/* ===== 事業紹介（サービス） ===== */
+/* 事業紹介 */
 .services {
   padding: 6rem 2rem;
   text-align: center;
@@ -137,7 +125,6 @@ body {
   border-radius: 16px;
   max-width: 92%;
   margin: 4rem auto;
-  box-sizing: border-box;       /* 横はみ出し防止 */
 }
 
 .service-cards {
@@ -147,7 +134,6 @@ body {
   margin-top: 3rem;
 }
 
-/* 事業カードの最適化（画像を中央に小さく配置するスタイル） */
 .card {
   background: #fff;
   border-radius: 16px;
@@ -155,13 +141,14 @@ body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 3rem 1.7rem;         /* 【変更】内側に上品な余白を復活 */
+  padding: 3rem 1.5rem;         
   display: flex;
   flex-direction: column;
-  align-items: center;          /* 【重要】中身（画像と文字）をすべて中央揃えにする */
+  align-items: center;          /* 中身を中央揃え */
+  justify-content: center;      /* 中身を上下中央に配置 */
   text-align: center;
   width: 100%;
-  min-height: 240px;            /* 【追加】カードの最小縦幅を240pxに固定し、しっかりした高さに */
+  min-height: 240px;            /* カードの縦幅を240pxに固定 */
   box-sizing: border-box;
 }
 
@@ -170,24 +157,66 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* 【大幅修正】画像を横いっぱいに広げず、上品なアイコンサイズに固定 */
+/* トップページの小さなアイコン専用の指定 */
 .card img {
-  width: auto;                  /* 横幅を自動（引き伸ばさない） */
-  max-width: 90px;              /* 【重要】画像の最大横幅を60pxに制限（小さくする） */
-  height: 90px;                 /* 【重要】縦幅も60pxの正方形に固定 */
-  object-fit: contain;          /* 【重要】アイコンが絶対に変形せず、綺麗に収まる設定 */
-  margin-bottom: 1.5rem;        /* 画像と下の文字との間の絶妙なスキマ */
+  width: auto !important;       /* 他の指定に邪魔されないよう強制適用 */
+  max-width: 90px !important;   /* アイコンの最大横幅を90pxに固定 */
+  height: 90px !important;      /* アイコンの縦幅を90pxに固定 */
+  object-fit: contain !important;
+  margin-bottom: 1.5rem;        
   display: block;
 }
 
-/* カード内の文字の調整 */
 .card h3 {
-  margin: 0;                    /* 余白を完全にリセットしてコントロール */
+  margin: 0;                    
   color: #A68B5B;
-  font-size: 1.2rem;            /* 【変更】カードの大きさに合わせて文字も少しだけ堂々と */
+  font-size: 1.2rem;            
   font-weight: 700;
 }
-/* ===== お問い合わせフォーム ===== */
+
+/* ==========================================
+   🖼️ 【個別ページ専用】大きな紹介写真の最適化（完全分離版）
+   ========================================== */
+/* olive.html, rice.html, blueberry.html, drone.html などの
+   「個別ページ内の大きな解説写真」だけを、他のページに1ミリも影響を与えずに
+   画面の縦幅の「6割」に美しく固定します。
+*/
+
+/* 1. まず個別ページのメイン写真のサイズを画面幅の6割（60vh）に固定 */
+.about img:not(.logo):not(.hero-logo):not(.teaser-icon),
+.detail img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 60vh !important;      /* 【社長ご要望】画面の縦幅の「6割」に確実に固定 */
+  object-fit: cover !important; /* 縦横比を完全に保ったまま美しくトリミング */
+  border-radius: 12px;          
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+  display: block;
+  margin: 2rem auto;            /* 前後の文章と適切な隙間をあける */
+}
+
+/* 2. 【最重要バグ修正】トップページ（index）と予告ページ（soon）の「アイコン画像」の形を絶対保護 */
+.card img,
+.teaser-icon,
+.service-cards img,
+.teaser-images img {
+  width: auto !important;       /* 横幅の自動計算を最優先 */
+  max-width: 90px !important;   /* アイコンの最大横幅を90pxに強制リセット */
+  height: 90px !important;      /* アイコンの縦幅を90pxの正方形に強制リセット */
+  object-fit: contain !important; /* 画像が絶対に縦に引き伸ばされないようにガッチリ保護 */
+  display: block !important;
+  margin: 0 auto 1.5rem auto !important;
+}
+
+/* もし個別ページに大きな「メインビジュアル写真」がある場合の設定 */
+.page-header-img {
+  width: 100%;
+  max-height: 400px;            /* 写真の高さがデカくなりすぎないよう上限を400pxに制限 */
+  object-fit: cover;            /* 縦横比を保ったまま綺麗にトリミング */
+  border-radius: 16px;
+}
+
+/* お問い合わせフォーム */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -204,7 +233,6 @@ body {
   border-radius: 6px;
   font-size: 1rem;
   background: #fff;
-  box-sizing: border-box;
 }
 
 .contact-form input:focus,
@@ -214,7 +242,7 @@ body {
   box-shadow: 0 0 4px rgba(166, 139, 91, 0.4);
 }
 
-/* ===== ボタン ===== */
+/* ボタン */
 .btn {
   display: inline-block;
   margin-top: 1.5rem;
@@ -232,62 +260,34 @@ body {
   color: #fff;
 }
 
-.center-text { text-align: center; }
-.center-btn { align-self: center; }
-
-/* ===== フッター ＆ 提携リンク最適化 ===== */
+/* フッター */
 .footer {
   background: rgba(62, 58, 57, 0.9);
   color: #E8E4DE;
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
 }
 
-.partner-links {
-  margin-top: 20px;
-  font-size: 14px;
+/* アニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.partner-links p {
-  font-weight: bold;
-  margin-bottom: 8px;
+.center-text { text-align: center; }
+.center-btn { align-self: center; }
+/* 共通見出しスタイル */
+.section-title {
+  text-align: center;     /* 中央揃え */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #A68B5B;         /* 金茶系の落ち着いたトーンに統一 */
+  font-weight: 700;
 }
-
-.partner-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.partner-links li {
-  margin-bottom: 5px;
-}
-
-/* 【バグ修正】暗い背景で見えなくなっていた文字色を明るいベージュに変更 */
-.partner-links a {
-  color: #E8E4DE;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.partner-links a:hover {
-  color: #A68B5B;
-  text-decoration: underline;
-}
-
-/* ===== その他パーツ ===== */
-.detail-text {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  line-height: 1.8;
-}
-
 /* 送信完了メッセージ用 */
 .thanks-message {
   position: relative;
-  z-index: 20;
+  z-index: 2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -312,34 +312,38 @@ body {
   line-height: 1.8;
   animation: fadeIn 2.2s ease-in-out;
 }
-
-/* アニメーション */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.detail-text {
+  background: rgba(255,255,255,0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  line-height: 1.8;
+}
+/* チバニアンリンク追加 */
+.partner-links {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-/* ==========================================
-   📱 スマホ・タブレット用 レスポンシブ設定（追加）
-   ========================================== */
-@media (max-width: 768px) {
-  .header {
-    padding: 0.5rem 1rem;       /* ヘッダーの左右余白をスマホ用に狭める */
-  }
-  .logo {
-    height: 45px;               /* ロゴを少し小さく */
-  }
-  .nav ul {
-    gap: 1rem;                  /* メニューの間隔を狭めて画面内に収める */
-  }
-  .nav a {
-    font-size: 0.85rem;         /* 文字サイズをスマホ最適化 */
-  }
-  .about, .services, .contact {
-    padding: 3rem 1.2rem;       /* 縦横の余白を縮めて文字のはみ出しを防止 */
-    max-width: 95%;
-  }
-  .section-title, .about h2, .contact h2 {
-    font-size: 1.6rem;          /* 見出しをスマホで見やすいサイズに */
-  }
+.partner-links p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.partner-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.partner-links li {
+  margin-bottom: 5px;
+}
+
+.partner-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.partner-links a:hover {
+  text-decoration: underline;
 }
